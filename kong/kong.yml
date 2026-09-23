@@ -12,4 +12,24 @@ services:
           - POST
           - PUT
           - DELETE
+          - OPTIONS
         strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins: 
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
