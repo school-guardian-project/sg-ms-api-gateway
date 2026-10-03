@@ -1,0 +1,202 @@
+_format_version: "3.0"
+
+services: 
+  - name: ms-iam
+    url: http://ms-iam:8080
+    routes:
+      - name: iam-auth-route
+        paths:
+          - /api/v1/auth
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: false
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
+      - name: rate-limiting
+        config:
+          minute: 60
+          policy: local
+          limit_by: ip
+
+  - name: ms-user-management
+    url: http://ms-user-management:8080
+    routes:
+      - name: user-management-route
+        paths:
+          - /user
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins: 
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
+
+  - name: ms-fleet
+    url: http://ms-fleet:8080
+    routes:
+      - name: fleet-route
+        paths:
+          - /fleet
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins: 
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
+
+  - name: ms-school-management
+    url: http://ms-school-management:8080
+    routes:
+      - name: school-management-route
+        paths:
+          - /school-management
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
+
+  - name: ms-notification
+    url: http://ms-notification:8080
+    routes:
+      - name: notification-route
+        paths:
+          - /notification
+        methods:
+          - GET
+          - POST
+        strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
+
+  - name: ms-route
+    url: http://ms-route:8080
+    routes:
+      - name: route-service-route
+        paths:
+          - /route
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: true
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Authorization
+            - Content-Type
+          exposed_headers:
+            - Location
+          credentials: true
+          max_age: 3600
