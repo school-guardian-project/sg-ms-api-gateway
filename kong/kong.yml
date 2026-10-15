@@ -1,5 +1,20 @@
 _format_version: "3.0"
 
+# Global plugin: validates the RS256 access token presented to the protected
+# routes and injects the authenticated identity as X-User-* headers.
+# Public routes (login / refresh / forgot-password) are listed in public_paths
+# so they are reachable without a token; inbound X-User-* headers are stripped
+# on every request regardless.
+plugins:
+  - name: sg-jwt
+    config:
+      jwks_url: http://ms-iam:8080/.well-known/jwks.json
+      issuer: school-guardian-iam
+      audience: school-guardian-api
+      public_paths:
+        - /api/v1/auth
+        - /api/v1/password
+
 services: 
   - name: ms-iam
     url: http://ms-iam:8080
@@ -25,6 +40,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -52,6 +68,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -66,6 +83,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -87,6 +105,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -101,6 +120,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -136,6 +156,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -168,6 +189,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -189,6 +211,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -203,6 +226,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -238,6 +262,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
