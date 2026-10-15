@@ -40,6 +40,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -67,6 +68,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -81,6 +83,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -102,6 +105,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -116,6 +120,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -151,6 +156,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -183,6 +189,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -204,6 +211,7 @@ services:
           - GET
           - POST
           - PUT
+          - PATCH
           - DELETE
           - OPTIONS
         strip_path: true
@@ -218,6 +226,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:
@@ -253,6 +262,7 @@ services:
             - GET
             - POST
             - PUT
+            - PATCH
             - DELETE
             - OPTIONS
           headers:

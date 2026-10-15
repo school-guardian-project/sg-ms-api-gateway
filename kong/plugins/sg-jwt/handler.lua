@@ -13,7 +13,7 @@ local JWKS_TTL = 300 -- seconds
 
 local _M = {
   PRIORITY = 950, -- after cors (1110) / jwt (1450), before rate-limiting (910)
-  VERSION = "1.0.0",
+  VERSION = "1.1.0",
 }
 
 -- Per-worker cache of the JWKS document.
@@ -22,7 +22,9 @@ local jwks_cache = { keys = nil, fetched_at = 0 }
 local IDENTITY_HEADERS = {
   "x-user-id",
   "x-user-role",
+  "x-user-role-name",
   "x-user-email",
+  "x-user-permissions",
   "x-campus-id",
   "x-school-id",
 }
@@ -184,8 +186,22 @@ function _M:access(conf)
   if payload.roleId ~= nil then
     kong.service.request.set_header("X-User-Role", tostring(payload.roleId))
   end
+  if payload.role then
+    kong.service.request.set_header("X-User-Role-Name", tostring(payload.role))
+  end
   if payload.email then
     kong.service.request.set_header("X-User-Email", tostring(payload.email))
+  end
+  if payload.permissions ~= nil then
+    local permissions
+    if type(payload.permissions) == "table" then
+      permissions = table.concat(payload.permissions, ",")
+    else
+      permissions = tostring(payload.permissions)
+    end
+    if permissions ~= "" then
+      kong.service.request.set_header("X-User-Permissions", permissions)
+    end
   end
   if payload.campusId then
     kong.service.request.set_header("X-Campus-Id", tostring(payload.campusId))
