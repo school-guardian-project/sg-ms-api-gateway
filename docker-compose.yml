@@ -6,6 +6,8 @@ services:
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: /opt/kong/kong.yml
+      KONG_PLUGINS: "bundled,sg-jwt"
+      KONG_LUA_PACKAGE_PATH: "/opt/kong/custom/?.lua;;"
       KONG_PROXY_ACCESS_LOG: /dev/stdout
       KONG_PROXY_ERROR_LOG: /dev/stderr
       KONG_ADMIN_ACCESS_LOG: /dev/stdout
@@ -14,6 +16,7 @@ services:
       KONG_ADMIN_GUI_LISTEN: "0.0.0.0:8002"
     volumes:
       - ./kong/kong.yml:/opt/kong/kong.yml:ro
+      - ./kong/plugins:/opt/kong/custom/kong/plugins:ro
     ports:
       - "8000:8000"
       - "8443:8443"
