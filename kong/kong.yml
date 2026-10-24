@@ -207,6 +207,7 @@ services:
       - name: route-service-route
         paths:
           - /route
+          - /trip
         methods:
           - GET
           - POST
