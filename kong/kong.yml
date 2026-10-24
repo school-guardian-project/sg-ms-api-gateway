@@ -38,6 +38,7 @@ services:
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
             - https://school-guardian.duckdns.org
+            - https://guardian-escolar.vercel.app
             - capacitor://localhost
             - ionic://localhost
             - http://localhost
@@ -88,6 +89,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -125,6 +127,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -161,6 +164,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -194,6 +198,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -232,6 +237,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -268,6 +274,7 @@ services:
             - http://localhost:4200
             - http://192.168.100.211:8081
             - http://192.168.100.211:8082
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
@@ -304,6 +311,7 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://guardian-escolar.vercel.app
           methods:
             - GET
             - POST
