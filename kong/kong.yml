@@ -14,6 +14,7 @@ plugins:
       public_paths:
         - /api/v1/auth
         - /api/v1/password
+        - /api/v1/auth/health
 
 services: 
   - name: ms-iam
@@ -36,6 +37,11 @@ services:
             - http://localhost:4200
             - https://2btcbqw-anonymous-9081.exp.direct
             - https://incurred-stroke-town-fares.trycloudflare.com
+            - https://school-guardian.duckdns.org
+            - capacitor://localhost
+            - ionic://localhost
+            - http://localhost
+            - https://localhost
           methods:
             - GET
             - POST
@@ -47,8 +53,11 @@ services:
             - Accept
             - Authorization
             - Content-Type
+            - Origin
+            - X-Requested-With
           exposed_headers:
             - Location
+            - Set-Cookie
           credentials: true
           max_age: 3600
       - name: rate-limiting
