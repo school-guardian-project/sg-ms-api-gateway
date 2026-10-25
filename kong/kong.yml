@@ -14,6 +14,8 @@ plugins:
       public_paths:
         - /api/v1/auth
         - /api/v1/password
+        - /api/v1/auth/health
+        - /.well-known/jwks.json
 
 services: 
   - name: ms-iam
@@ -28,6 +30,12 @@ services:
           - PUT
           - DELETE
           - OPTIONS
+        strip_path: false
+      - name: iam-jwks-route
+        paths:
+          - /.well-known/jwks.json
+        methods:
+          - GET
         strip_path: false
     plugins:
       - name: cors
