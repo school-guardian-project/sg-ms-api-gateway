@@ -150,6 +150,26 @@ services:
           - DELETE
           - OPTIONS
         strip_path: false
+      - name: forgot-email-change-route
+        paths:
+          - /api/v1/email/change
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: false
+      - name: forgot-phone-change-route
+        paths:
+          - /api/v1/phone/change
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+          - OPTIONS
+        strip_path: false
     plugins:
       - name: cors
         config: *common_cors
