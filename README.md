@@ -1,6 +1,6 @@
 # sg-ms-api-gateway
 
-API Gateway microservice for School Guardian, running Kong in DB-less mode to route and apply CORS policies between frontend clients and backend microservices.
+API Gateway microservice for School Guardian. Runs Kong in DB-less mode to route requests between frontend clients and backend microservices, applying CORS policies and JWT validation through the `sg-jwt` plugin.
 
 ## Getting Started
 
@@ -12,16 +12,21 @@ Requirements for the software and other tools to build, test and push:
 
 - Docker
 - Docker Compose
+- The `sg-services-network` Docker network (external, shared across services)
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development environment running.
 
-Start the service with Docker Compose:
+Create the external network if it does not exist:
+
+    docker network create sg-services-network
+
+Start the gateway:
 
     docker compose up -d
 
-Kong runs in DB-less mode with `kong.yml` mounted by Docker Compose.
+Kong exposes the proxy on `127.0.0.1:8000` (loopback only for local debugging). The Admin API listens on `127.0.0.1:8001` inside the container. The declarative configuration is mounted from `./kong/kong.yml` and custom plugins from `./kong/plugins`.
 
 ## Running the tests
 
@@ -41,12 +46,12 @@ Deployment is performed via GitHub Actions to an AWS EC2 instance.
 
 ## Built With
 
-- Kong — API Gateway
+- Kong 3.9 — API Gateway (DB-less mode)
 - Docker Compose — Local development stack
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/school-guardian-project/.github/blob/main/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
