@@ -29,15 +29,15 @@ Explain how to run the automated tests for this system.
 
 ### Sample Tests
 
-Explain what these tests test and why.
+Tests are executed against the test service that runs in Docker Compose for each service.
 
 ### Style test
 
-Checks if the best practices and the right coding style has been used.
+Checks if the best practices and the right coding style has been used, validated through the test service in Docker Compose.
 
 ## Deployment
 
-Add additional notes to deploy this on a live system.
+Deployment is performed via GitHub Actions to an AWS EC2 instance.
 
 ## Built With
 
