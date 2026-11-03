@@ -1,4 +1,4 @@
-# sg-ms-api-gateway
+# Servicio Api Gateway - Kong y kafka
 
 API Gateway microservice for School Guardian. Runs Kong in DB-less mode to route requests between frontend clients and backend microservices, applying CORS policies and JWT validation through the `sg-jwt` plugin.
 
